@@ -6,6 +6,7 @@ import java.awt.*;
 //test6
 //test69
 // HOhohohohohoh
+//Simon 123
 public class Volvo240{
 
     public final static double trimFactor = 1.25;
