@@ -6,23 +6,13 @@ import java.awt.*;
  */
 public abstract class Car { // the class can be abstract as objects of this class is not created
     // By using an abstract class instead of an interface the instance variables can also be inherited
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
-
-    /**
-     * EHEHEHE
-     *
-     */
-    public Car(){
-        nrDoors = 4;
-        color = Color.black;
-        enginePower = 100;
-        modelName = "Volvo240";
-        stopEngine();
-    }
+    protected int nrDoors; // Number of doors on the car
+    protected double enginePower; // Engine power of the car
+    protected double currentSpeed; // The current speed of the car
+    protected Color color; // Color of the car
+    protected String modelName; // The car model name
+    protected int direction = 0; // 0: positive x direction, 1: positive y direction, 2: negative x direction, 3: negative y direction
+    protected double[] position = {0,0};
 
     /**
      * Get number of doors
@@ -61,4 +51,38 @@ public abstract class Car { // the class can be abstract as objects of this clas
     // TODO fix this method according to lab pm
     public void brake(double amount){ decrementSpeed(amount); }
 
+    public int getDirection(){
+        return direction;
+    }
+    public double[] getPosition(){
+        return position;
+    }
+
+    @Override
+    public void move(){
+        if(direction == 0){
+            position[0] += getCurrentSpeed();
+        }
+        if(direction == 1){
+            position[1] += getCurrentSpeed();
+        }
+        if(direction == 2){
+            position[0] -= getCurrentSpeed();
+        }
+        if(direction == 3){
+            position[1] -= getCurrentSpeed();
+        }
+    }
+
+    @Override
+    public void turnLeft() {
+        direction += 1;
+        direction = direction%4;
+    }
+
+    @Override
+    public void turnRight() {
+        direction -= 1;
+        direction = (direction < 0)? direction+4 : direction;
+    }
 }
