@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Saab95 extends Car{
 
-    public boolean turboOn;
+    protected boolean turboOn;
 
     public Saab95(){
         nrDoors = 2;
@@ -40,12 +40,15 @@ public class Saab95 extends Car{
 
 
     // TODO fix this method according to lab pm
+    @Override
     public void gas(double amount){
         incrementSpeed(amount);
     }
 
     // TODO fix this method according to lab pm
+    @Override
     public void brake(double amount){
         decrementSpeed(amount);
     }
+
 }
