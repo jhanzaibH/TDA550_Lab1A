@@ -13,7 +13,7 @@ public abstract class Car { // the class can be abstract as objects of this clas
     public String modelName; // The car model name
 
     /**
-     * EHEHEH
+     * EHEHEHE
      *
      */
     public Car(){
