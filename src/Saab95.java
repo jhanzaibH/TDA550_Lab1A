@@ -2,8 +2,14 @@ import java.awt.*;
 
 public class Saab95 extends Car{
 
+    /**
+     * Turbo
+     */
     protected boolean turboOn;
 
+    /**
+     * Creates a car of the type Saab95
+     */
     public Saab95(){
         nrDoors = 2;
         color = Color.red;
@@ -13,12 +19,25 @@ public class Saab95 extends Car{
         stopEngine();
     }
 
+    /**
+     * Turns on turbo
+     */
     public void setTurboOn(){
         turboOn = true;
     }
-
+    /**
+     * Turns off turbo off
+     */
     public void setTurboOff(){
         turboOn = false;
+    }
+
+    /**
+     * Gives true if turbo in on
+     * @return boolean
+     */
+    public boolean getTurbo(){
+        return turboOn;
     }
 
     @Override
