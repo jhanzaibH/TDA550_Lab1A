@@ -51,26 +51,29 @@ public abstract class Car { // the class can be abstract as objects of this clas
     // TODO fix this method according to lab pm
     public void brake(double amount){ decrementSpeed(amount); }
 
+    /**
+     * Gives current direction
+     * @return int
+     */
     public int getDirection(){
         return direction;
     }
+
+    /**
+     * Gives current position
+     * @return double[]
+     */
     public double[] getPosition(){
         return position;
     }
 
     @Override
     public void move(){
-        if(direction == 0){
-            position[0] += getCurrentSpeed();
-        }
-        if(direction == 1){
-            position[1] += getCurrentSpeed();
-        }
-        if(direction == 2){
-            position[0] -= getCurrentSpeed();
-        }
-        if(direction == 3){
-            position[1] -= getCurrentSpeed();
+        switch (direction) {
+            case 0 -> position[0] += getCurrentSpeed();
+            case 1 -> position[1] += getCurrentSpeed();
+            case 2 -> position[0] -= getCurrentSpeed();
+            case 3 -> position[1] -= getCurrentSpeed();
         }
     }
 

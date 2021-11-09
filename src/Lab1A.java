@@ -1,8 +1,23 @@
+import javax.swing.*;
+import java.security.PublicKey;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Lab1A {
+    /**
+     * An arrayList of Car
+     */
+    public static ArrayList<Car> carArrayList;
+    /**
+     * The main method
+     * @param args is not used
+     */
     public static void main(String[] args){
-        Car c1 = new Saab95();
+
+        carArrayList = new ArrayList<>(10);
+        Car c1 = new Volvo240();
+        carArrayList.add(c1);
+
         c1.startEngine();
         System.out.println(Arrays.toString(c1.getPosition()));
         c1.move();
