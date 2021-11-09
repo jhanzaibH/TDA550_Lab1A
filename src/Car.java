@@ -6,15 +6,35 @@ import java.awt.*;
  * @author Simon
  * @author Jhanzaib
  */
-public abstract class Car { // the class can be abstract as objects of this class is not created
+public abstract class Car implements Movable{ // the class can be abstract as objects of this class is not created
     // By using an abstract class instead of an interface the instance variables can also be inherited
+    /** Number of doors of the car */
     protected int nrDoors; // Number of doors on the car
+    /** Engine power of the car */
     protected double enginePower; // Engine power of the car
+    /** Current speed of tha car */
     protected double currentSpeed; // The current speed of the car
+    /** Color of the car */
     protected Color color; // Color of the car
+    /** Model name of the car */
     protected String modelName; // The car model name
+    /** Direction of the car */
     protected int direction = 0; // 0: positive x direction, 1: positive y direction, 2: negative x direction, 3: negative y direction
+    /** Position of the car */
     protected double[] position = {0,0};
+
+    /** Length of the car */
+    protected final int length = 10;
+    /** Width of the car */
+    protected final int width = 5;
+
+    /**
+     * Returns the modelname of the car
+     * @return String
+     */
+    public String getModelName(){
+        return modelName;
+    }
 
     /**
      * Get number of doors
@@ -72,10 +92,24 @@ public abstract class Car { // the class can be abstract as objects of this clas
      * @param amount is speed to be increased
      */
     protected abstract void incrementSpeed(double amount);
+    // TODO probably change this comment
+    /**
+     * Uses the method incrementSpeed
+     * @param amount increase speed by amount
+     */
     // TODO fix this method according to lab pm
     public void gas(double amount){ incrementSpeed(amount); }
-
+    // TODO probably change this comment
+    /**
+     * Decrements speed
+     * @param amount the speed is to be decreased
+     */
     protected abstract void decrementSpeed(double amount);
+    // TODO probably change this comment
+    /**
+     * Decrements speed
+     * @param amount decrements the speed with amount
+     */
     // TODO fix this method according to lab pm
     public void brake(double amount){ decrementSpeed(amount); }
 
