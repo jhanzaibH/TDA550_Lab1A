@@ -2,7 +2,9 @@ import javax.swing.*;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+ * The class Lab1A
+ */
 public class Lab1A {
     /**
      * An arrayList of Car

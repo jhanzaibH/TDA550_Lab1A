@@ -1,5 +1,7 @@
 import java.awt.*;
-
+/**
+ * A class of a car Saab95
+ */
 public class Saab95 extends Car{
 
     /**
@@ -48,12 +50,12 @@ public class Saab95 extends Car{
     }
 
     @Override
-    public void incrementSpeed(double amount){
+    protected void incrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
     @Override
-    public void decrementSpeed(double amount){
+    protected void decrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
 
