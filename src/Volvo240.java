@@ -9,7 +9,9 @@ public class Volvo240 extends Car{
      * The trim factor
      */
     protected final static double trimFactor = 1.25;
-
+    /**
+     * Creates a car Volvo240
+     */
     public Volvo240(){
         nrDoors = 4;
         color = Color.black;

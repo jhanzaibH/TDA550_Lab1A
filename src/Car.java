@@ -3,6 +3,8 @@ import java.awt.*;
  * This is the abstract class inherited by different car models.
  *
  * @author Alvin
+ * @author Simon
+ * @author Jhanzaib
  */
 public abstract class Car { // the class can be abstract as objects of this class is not created
     // By using an abstract class instead of an interface the instance variables can also be inherited
@@ -21,28 +23,54 @@ public abstract class Car { // the class can be abstract as objects of this clas
     public int getNrDoors(){
         return nrDoors;
     }
+    /**
+     * Returns the engine power
+     * @return double
+     */
     public double getEnginePower(){
         return enginePower;
     }
+    /**
+     * Returns the current speed of the car
+     * @return double
+     */
     public double getCurrentSpeed(){
         return currentSpeed;
     }
+    /**
+     * Returns the color of the car
+     * @return Color
+     */
     public Color getColor(){
         return color;
     }
-
+    /**
+     * Sets the color of the car
+     * @param clr new color of the car
+     */
     public void setColor(Color clr){
         color = clr;
     }
-
+    /**
+     * Starts the engine
+     */
     public void startEngine(){
         currentSpeed = 0.1;
     }
-
+    /**
+     * Sets the current speed to 0
+     */
     public void stopEngine(){ currentSpeed = 0; }
-
+    /**
+     * Speed factor
+     * @return double
+     */
     public abstract double speedFactor();
-
+    // TODO probably change this comment
+    /**
+     * Increments speed
+     * @param amount is speed to be increased
+     */
     protected abstract void incrementSpeed(double amount);
     // TODO fix this method according to lab pm
     public void gas(double amount){ incrementSpeed(amount); }
