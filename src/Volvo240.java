@@ -3,16 +3,17 @@ import java.awt.*;
 /**
  * A class of a car Volvo240
  */
-public class Volvo240 extends Car{
+public class Volvo240 extends Car {
 
     /**
      * The trim factor
      */
     protected final static double trimFactor = 1.25;
+
     /**
      * Creates a car Volvo240
      */
-    public Volvo240(){
+    public Volvo240() {
         nrDoors = 4;
         color = Color.black;
         enginePower = 100;
@@ -20,31 +21,17 @@ public class Volvo240 extends Car{
         stopEngine();
     }
 
+    /**
+     * Returns trimFactor
+     *
+     * @return double
+     */
+    public double getTrimFactor() {
+        return trimFactor;
+    }
+
     @Override
-    public double speedFactor(){
+    protected double speedFactor() {
         return enginePower * 0.01 * trimFactor;
     }
-
-    @Override
-    protected void incrementSpeed(double amount){
-        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
-    }
-
-    @Override
-    protected void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
-    }
-
-    // TODO fix this method according to lab pm
-    @Override
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    @Override
-    public void brake(double amount){
-        decrementSpeed(amount);
-    }
-
 }

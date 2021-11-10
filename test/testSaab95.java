@@ -34,8 +34,10 @@ public class testSaab95 {
     }
     @Test
     public void testIncrementSpeed(){
-        saab.incrementSpeed(saab.currentSpeed+10);
-        assertEquals(saab.getEnginePower(), saab.getCurrentSpeed(),0.0);
+        double amount = 1;
+        double speed = saab.getCurrentSpeed() + saab.speedFactor() * amount;
+        saab.incrementSpeed(amount);
+        assertEquals(speed, saab.getCurrentSpeed(),0.0);
     }
     @Test
     public void testDecrementSpeed(){

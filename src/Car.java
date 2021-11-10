@@ -17,7 +17,7 @@ public abstract class Car implements Movable{ // the class can be abstract as ob
     /** Model name of the car */
     protected String modelName; // The car model name
     /** Direction of the car */
-    protected int direction = 0; // 0: positive x direction, 1: positive y direction, 2: negative x direction, 3: negative y direction
+    private int direction = 0; // 0: positive x direction, 1: positive y direction, 2: negative x direction, 3: negative y direction
     /** Position of the car */
     protected double[] position = {0,0};
 
@@ -83,33 +83,42 @@ public abstract class Car implements Movable{ // the class can be abstract as ob
      * Speed factor
      * @return double
      */
-    public abstract double speedFactor();
+    protected abstract double speedFactor();
     // TODO probably change this comment
     /**
      * Increments speed
      * @param amount is speed to be increased
      */
-    protected abstract void incrementSpeed(double amount);
-    // TODO probably change this comment
+    protected void incrementSpeed(double amount){
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+    }
+
     /**
      * Uses the method incrementSpeed
      * @param amount increase speed by amount
      */
-    // TODO fix this method according to lab pm
-    public void gas(double amount){ incrementSpeed(amount); }
-    // TODO probably change this comment
+    public void gas(double amount) {
+        if (amount >= 0 && amount <= 1) {
+            incrementSpeed(amount);
+        }
+    }
+
     /**
      * Decrements speed
      * @param amount the speed is to be decreased
      */
-    protected abstract void decrementSpeed(double amount);
-    // TODO probably change this comment
+    protected void decrementSpeed(double amount){
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+    }
     /**
      * Decrements speed
      * @param amount decrements the speed with amount
      */
-    // TODO fix this method according to lab pm
-    public void brake(double amount){ decrementSpeed(amount); }
+    public void brake(double amount){
+        if(amount>=0 && amount<=1){
+            decrementSpeed(amount);
+        }
+    }
 
     /**
      * Gives current direction
@@ -140,12 +149,12 @@ public abstract class Car implements Movable{ // the class can be abstract as ob
     @Override
     public void turnLeft() {
         direction += 1;
-        direction = direction%4;
+        direction %= 4;
     }
 
     @Override
     public void turnRight() {
         direction -= 1;
-        direction = (direction < 0)? direction+4 : direction;
+        if (direction < 0){ direction += 4; }
     }
 }
