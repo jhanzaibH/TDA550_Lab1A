@@ -7,24 +7,31 @@ import java.awt.*;
 public abstract class Car implements Movable{ // the class can be abstract as objects of this class is not created
     // By using an abstract class instead of an interface the instance variables can also be inherited
     /** Number of doors of the car */
-    protected int nrDoors; // Number of doors on the car
+    private final int nrDoors; // Number of doors on the car
     /** Engine power of the car */
-    protected double enginePower; // Engine power of the car
+    private final double enginePower; // Engine power of the car
     /** Current speed of tha car */
     protected double currentSpeed; // The current speed of the car
     /** Color of the car */
-    protected Color color; // Color of the car
+    private Color color; // Color of the car
     /** Model name of the car */
-    protected String modelName; // The car model name
+    private final String modelName; // The car model name
     /** Direction of the car */
     private int direction = 0; // 0: positive x direction, 1: positive y direction, 2: negative x direction, 3: negative y direction
     /** Position of the car */
-    protected double[] position = {0,0};
+    private double[] position = {0,0};
 
     /** Length of the car */
     protected final int length = 10;
     /** Width of the car */
     protected final int width = 5;
+
+    public Car(int nrDoors, Color color, int enginePower, String modelName){
+        this.nrDoors = nrDoors;
+        this.color = color;
+        this.enginePower = enginePower;
+        this.modelName = modelName;
+    }
 
     /**
      * Returns the modelname of the car
