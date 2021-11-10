@@ -24,9 +24,9 @@ public abstract class Car implements Movable{ // the class can be abstract as ob
     private double[] position = {0,0};
 
     /** Length of the car */
-    protected final int length = 10;
+    private final int length = 10;
     /** Width of the car */
-    protected final int width = 5;
+    private final int width = 5;
 
     public Car(int nrDoors, Color color, int enginePower, String modelName){
         this.nrDoors = nrDoors;
