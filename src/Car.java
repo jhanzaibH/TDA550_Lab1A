@@ -28,6 +28,13 @@ public abstract class Car implements Movable{ // the class can be abstract as ob
     /** Width of the car */
     private final int width = 5;
 
+    /**
+     * Creates a car with specified parameters
+     * @param nrDoors number of doors
+     * @param color color of the car
+     * @param enginePower enginePower of the car
+     * @param modelName name of the car
+     */
     public Car(int nrDoors, Color color, int enginePower, String modelName){
         this.nrDoors = nrDoors;
         this.color = color;
