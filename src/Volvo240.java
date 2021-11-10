@@ -23,7 +23,6 @@ public class Volvo240 extends Car {
 
     /**
      * Returns trimFactor
-     *
      * @return double
      */
     public double getTrimFactor() {
