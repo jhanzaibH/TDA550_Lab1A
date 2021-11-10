@@ -19,7 +19,7 @@ public class testSaab95 {
     @Test
     public void testTurboOff() {
         saab.setTurboOff();
-        assertTrue(saab.getTurbo());
+        assertTrue(!saab.getTurbo());
     }
     @Test
     public void testGetTurbo() {
