@@ -50,20 +50,25 @@ public class testCar {
         saab.stopEngine();
         assertEquals(0, saab.getCurrentSpeed(),0.0);
     }
-
     @Test
-    public void testGas(){
+    public void testGas() {
         saab.startEngine();
-        saab.gas(1);
-        // TODO change this
-        // assertEquals(0, saab.getCurrentSpeed(),0.0);
+        double startSpeed = saab.getCurrentSpeed();
+        saab.gas(0.5);
+        assertEquals(startSpeed + saab.speedFactor() * 0.5, saab.getCurrentSpeed(),0.0);
     }
-
     @Test
-    public void testBrake(){
-        saab.brake(1);
-        // TODO change this
-        // assertEquals(0, saab.getCurrentSpeed(),0.0);
+    public void testBrake() {
+        saab.startEngine();
+        saab.gas(0.9);
+        saab.decrementSpeed(0.4);
+        double decreasedSpeed = saab.getCurrentSpeed();
+
+        saab.stopEngine();
+        saab.startEngine();
+        saab.gas(0.9);
+        saab.brake(0.4);
+        assertEquals(decreasedSpeed, saab.getCurrentSpeed(),0.0);
     }
     @Test
     public void testGetDirection(){

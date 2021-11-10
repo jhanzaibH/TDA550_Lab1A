@@ -42,21 +42,4 @@ public class testSaab95 {
         saab.decrementSpeed(saab.currentSpeed+10);
         assertEquals(0, saab.getCurrentSpeed(),0.0);
     }
-
-    @Test
-    public void testGas() {
-        saab.startEngine();
-        double startSpeed = saab.getCurrentSpeed();
-        saab.gas(0.5);
-        assertEquals(startSpeed + saab.speedFactor() * 0.5, saab.getCurrentSpeed(),0.0);
-    }
-    @Test
-    public void testBrake() {
-        saab.startEngine();
-        saab.gas(0.9);
-        double startSpeed = saab.getCurrentSpeed();// before braking
-
-        saab.brake(0.4);
-        assertEquals(startSpeed, saab.getCurrentSpeed(),0.0);
-    }
 }
