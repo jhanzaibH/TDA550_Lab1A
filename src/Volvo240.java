@@ -1,7 +1,7 @@
 import java.awt.*;
 
 /**
- * A class of a car Volvo240
+ * A class of a car Volvo240.
  */
 public class Volvo240 extends Car{
 
