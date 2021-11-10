@@ -3,8 +3,6 @@ import java.awt.*;
  * This is the abstract class inherited by different car models.
  *
  * @author Alvin
- * @author Simon
- * @author Jhanzaib
  */
 public abstract class Car implements Movable{ // the class can be abstract as objects of this class is not created
     // By using an abstract class instead of an interface the instance variables can also be inherited

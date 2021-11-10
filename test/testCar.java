@@ -7,6 +7,10 @@ import static org.junit.Assert.*;
 
 public class testCar {
     Saab95 saab = new Saab95();
+    @Test
+    public void testGetModelName(){
+        assertEquals("Saab95", saab.getModelName());
+    }
 
     @Test
     public void testGetNrDoors(){
@@ -78,7 +82,19 @@ public class testCar {
         Volvo240 volvo = new Volvo240();
         volvo.startEngine();
         volvo.move();
+        assertEquals(0.1, volvo.getPosition()[0], 0.0);
+        assertEquals(0.0, volvo.getPosition()[1], 0.0);
+        volvo.turnLeft();
+        volvo.move();
         assertEquals(0.1,volvo.getPosition()[0],0.0);
+        assertEquals(0.1,volvo.getPosition()[1],0.0);
+        volvo.turnLeft();
+        volvo.move();
+        assertEquals(0.0,volvo.getPosition()[0],0.0);
+        assertEquals(0.1,volvo.getPosition()[1],0.0);
+        volvo.turnLeft();
+        volvo.move();
+        assertEquals(0.0,volvo.getPosition()[0],0.0);
         assertEquals(0.0,volvo.getPosition()[1],0.0);
     }
     @Test
